@@ -25,7 +25,6 @@ public class AlternateStandardDeviceTest {
     @Test
     void testMock() {
         device = new StandardDevice(this.stubFailingPolicy);
-        // multiple stubbing
         when(this.stubFailingPolicy.attemptOn()).thenReturn(false);
         when(this.stubFailingPolicy.policyName()).thenReturn("mock");
         assertThrows(IllegalStateException.class, () -> device.on());
