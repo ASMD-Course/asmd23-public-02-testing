@@ -2,9 +2,7 @@ package gui;
 
 import gui.logger.LogLevel;
 import gui.logger.Logger;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.Test;
 import org.mockito.Spy;
 
@@ -19,12 +17,17 @@ class ControllerTest {
 
     private Controller controller;
     private static final int TEST_SIZE = 8;
-
+    private AutoCloseable mocks;
 
     @BeforeEach
     void setUp() {
-        MockitoAnnotations.openMocks(this);
+        mocks = MockitoAnnotations.openMocks(this);
         controller = new ControllerImpl(TEST_SIZE, spyLogger);
+    }
+
+    @AfterEach
+    void tearDown() throws Exception {
+        mocks.close();
     }
 
     @Nested
