@@ -17,7 +17,6 @@ import static org.mockito.Mockito.*;
 
 public class DeviceTest {
 
-
     @Mock FailingPolicy stubFailingPolicy;
     @Spy RandomFailing spyRandomPolicy;
 
@@ -127,7 +126,6 @@ public class DeviceTest {
             verify(stubFailingPolicy).attemptOn();
             device.reset();
             assertEquals(2, Mockito.mockingDetails(stubFailingPolicy).getInvocations().size());
-
         }
 
         @Test
