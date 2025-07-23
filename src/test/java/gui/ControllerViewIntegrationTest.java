@@ -29,7 +29,6 @@ class ControllerViewIntegrationTest {
         };
     }
 
-
     @Test
     @DisplayName("Clicking a cell marks it and updates GUI")
     void testCellClickUpdatesControllerAndView() {
